@@ -11,5 +11,5 @@ class Contact extends Model
 
     protected $table = 'contact'; 
 
-    protected $fillable = ['picture'];
+    protected $fillable = ['picture', 'link'];
 }

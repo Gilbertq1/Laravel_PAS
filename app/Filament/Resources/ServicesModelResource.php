@@ -31,8 +31,7 @@ class ServicesModelResource extends Resource
                 ->label('Title')
                 ->required(),
                 Forms\Components\TextArea::make('description')
-                ->label('Deskripsi')
-                ->required(),
+                ->label('Deskripsi'),
                 Forms\Components\FileUpload::make('picture'),
             ]);
     }
@@ -41,8 +40,8 @@ class ServicesModelResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->sortable()->searchable(),
-                TextColumn::make('description')->limit(50),
+                TextColumn::make('title')->sortable()->searchable(),
+                TextColumn::make('description'),
                 ImageColumn::make('picture'),
             ])
             ->filters([

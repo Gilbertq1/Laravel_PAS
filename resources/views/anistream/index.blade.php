@@ -13,6 +13,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   </head>
 
   <style>
@@ -103,12 +105,12 @@
           <div class="mt-12 mb-8 flex gap-4 items-center">
             <p>Check out Our:</p>
             <div class="flex space-x-3">
-            @foreach ($contacts as $contact)
-              <a href="#"
-                ><img src="{{ asset('storage/' . $contact->picture) }}" alt="" class="w-8 h-8"
-              /></a>
-              @endforeach
-            </div>
+    @foreach ($contacts as $contact)
+        <a href="{{ $contact->link }}" target="_blank">
+            <img src="{{ asset('storage/' . $contact->picture) }}" alt="Social Media Icon" class="w-8 h-8" />
+        </a>
+    @endforeach
+</div>
           </div>
         </div>
         <div class="md:w-1/2 order-first md:order-none">

@@ -16,6 +16,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 
 class ContactResource extends Resource
 {
@@ -27,7 +29,13 @@ class ContactResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('picture'),
+                Forms\Components\FileUpload::make('picture')
+                ->label('Icon'),
+                
+                TextInput::make('link')
+                ->required()
+                ->url()
+                ->maxLength(255),
             ]);
     }
 
@@ -35,7 +43,14 @@ class ContactResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('picture'),
+                TextColumn::make('link')
+                ->label('Link')
+                ->url(fn($record) => $record->link, true)
+                ->openUrlInNewTab()
+                ->sortable()
+                ->searchable(),
+                ImageColumn::make('picture')
+                ->label('Icon'),
             ])
             ->filters([
                 //

@@ -11,5 +11,5 @@ class Review extends Model
 
     protected $table = 'review'; 
 
-    protected $fillable = ['name', 'picture','description'];
+    protected $fillable = ['name', 'picture', 'description'];
 }
